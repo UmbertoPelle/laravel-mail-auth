@@ -10899,3 +10899,7 @@ a.text-dark:focus {
   }
 }
 
+.container .card h4 {
+  margin-left: 19px;
+}
+
