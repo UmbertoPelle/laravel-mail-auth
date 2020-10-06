@@ -14,6 +14,7 @@ class LoggedController extends Controller{
       $this->middleware('auth');
   }
 
+
   public function delete($id){
     $post = Post::findOrFail($id);
     $post -> delete();
@@ -38,6 +39,12 @@ class LoggedController extends Controller{
     $post = Post::findOrFail($id);
 
     $post -> update($data);
+
+    $user = Auth::user();
+    $action = 'UPDATE';
+
+    Mail::to("admin@boolean.com")
+        ->send(new PostAction($user, $post, $action));
     return redirect() -> route('posts-index');
   }
 
@@ -49,7 +56,12 @@ class LoggedController extends Controller{
   public function store(Request $request){
     $data = $request -> all();
     $post = Post::create($data);
+    
+    $user = Auth::user();
+    $action = 'CREATE';
 
+    Mail::to("admin@boolean.com")
+        ->send(new PostAction($user, $post, $action));
     return redirect() -> route('posts-index');
   }
 }

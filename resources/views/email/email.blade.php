@@ -8,8 +8,8 @@
           <div class="card-header">{{ $user -> name }} - <strong>{{ $action }}</strong></div>
 
           <div class="card-body">
-            <h1>{{ $post -> title}}</h1>
-            <h2>{{ $post -> description}}</h2>
+            <h1>Title: {{ $post -> title}}</h1>
+            <h2>Description: {{ $post -> description}}</h2>
             <h4>Like: {{ $post -> like }}</h4>
             <h4>Dislike: {{ $post -> dislike }}</h4>
           </div>
