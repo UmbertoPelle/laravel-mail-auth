@@ -18,6 +18,10 @@
                       </li>
                     @endforeach
                   </ol>
+
+                  @auth
+                    <a class="btn btn-success" href={{ route('post-create') }}>New post</a>
+                  @endauth
                 </div>
             </div>
         </div>

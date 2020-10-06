@@ -13,8 +13,8 @@
                   <h4>Dislike: {{ $post -> dislike }}</h4>
 
                   @auth
-                    <a class="btn btn-primary" href="#">edit</a>
-                    <a class="btn btn-danger" href={{ route('post-delete', $post -> id)}}>delete</a>
+                    <a class="btn btn-primary" href={{ route('post-edit', $post -> id ) }}>edit</a>
+                    <a class="btn btn-danger" href={{ route('post-delete', $post -> id) }}>delete</a>
                   @else
                     <h2>Please do loggin to edit!</h2>
                   @endauth
